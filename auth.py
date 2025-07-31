@@ -15,6 +15,12 @@ API_VERSION = "v3"
 
 
 def get_authenticated_service():
+    # This flag is required for running the local server.
+    # It tells the library that the local server on your machine,
+    # which is running on an insecure HTTP transport, is trusted for
+    # this authentication flow.
+    # It is safe to use for a local desktop application.
+    # ! DO NOT use this flag in a production web application.
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
 
     credentials = None
